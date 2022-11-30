@@ -12,7 +12,17 @@
 <body>
 
     <div id="app">
-        
+        <div class="container">
+            <div class="row py-4">
+                <div class="col-6 m-auto">
+                    <h1>Email List</h1>
+                    <ul class="list-group">
+                        <li class="list-group-item"
+                            v-for="email in emails">{{email}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>
