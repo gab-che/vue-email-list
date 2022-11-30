@@ -4,6 +4,8 @@ createApp({
     data(){
         return{
             emails: [],
+            counter: 10,
+            temporaryEmails: [],
         }
     },
 
@@ -11,8 +13,12 @@ createApp({
         fetchEmails(){
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then((response)=>{
-                //console.log(response.data.response);
-                this.emails.push(response.data.response);
+                this.temporaryEmails.push(response.data.response);
+                this.counter--;
+
+                if(this.counter === 0){
+                    this.emails = this.temporaryEmails;
+                }
             })
         },
 
